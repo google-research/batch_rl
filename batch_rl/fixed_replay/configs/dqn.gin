@@ -1,0 +1,37 @@
+# Hyperparameters follow the classic Nature DQN, but we modify as necessary to
+# match those used in Rainbow (Hessel et al., 2018), to ensure apples-to-apples
+# comparison.
+import dopamine.discrete_domains.atari_lib
+import batch_rl.fixed_replay.run_experiment
+import batch_rl.fixed_replay.replay_memory.fixed_replay_buffer
+import batch_rl.fixed_replay.agents.dqn_agent
+import gin.tf.external_configurables
+
+FixedReplayDQNAgent.gamma = 0.99
+FixedReplayDQNAgent.update_horizon = 1
+FixedReplayDQNAgent.min_replay_history = 20000  # agent steps
+FixedReplayDQNAgent.update_period = 4
+FixedReplayDQNAgent.target_update_period = 8000  # agent steps
+FixedReplayDQNAgent.epsilon_train = 0.01
+FixedReplayDQNAgent.epsilon_eval = 0.001
+FixedReplayDQNAgent.epsilon_decay_period = 250000  # agent steps
+FixedReplayDQNAgent.tf_device = '/gpu:0'
+# FixedReplayDQNAgent.tf_device = '/cpu:*'
+FixedReplayDQNAgent.optimizer = @tf.train.RMSPropOptimizer()
+
+tf.train.RMSPropOptimizer.learning_rate = 0.00025
+tf.train.RMSPropOptimizer.decay = 0.95
+tf.train.RMSPropOptimizer.momentum = 0.0
+tf.train.RMSPropOptimizer.epsilon = 0.00001
+tf.train.RMSPropOptimizer.centered = True
+
+atari_lib.create_atari_environment.game_name = 'Pong'
+# Sticky actions with probability 0.25, as suggested by (Machado et al., 2017).
+atari_lib.create_atari_environment.sticky_actions = True
+FixedReplayRunner.num_iterations = 200
+FixedReplayRunner.training_steps = 250000  # agent steps
+FixedReplayRunner.evaluation_steps = 125000  # agent steps
+FixedReplayRunner.max_steps_per_episode = 27000  # agent steps
+
+WrappedFixedReplayBuffer.replay_capacity = 1000000
+WrappedFixedReplayBuffer.batch_size = 32

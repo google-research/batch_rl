@@ -1,0 +1,34 @@
+# Hyperparameters follow Dabney et al. (2017) but we modify as necessary to
+# match those used in Rainbow (Hessel et al., 2018), to ensure apples-to-apples
+# comparison.
+import dopamine.discrete_domains.atari_lib
+import dopamine.discrete_domains.run_experiment
+import batch_rl.baselines.agents.quantile_agent
+import batch_rl.baselines.replay_memory.logged_prioritized_replay_buffer
+import gin.tf.external_configurables
+
+LoggedQuantileAgent.num_atoms = 200
+LoggedQuantileAgent.gamma = 0.99
+LoggedQuantileAgent.update_horizon = 1
+LoggedQuantileAgent.min_replay_history = 20000 # agent steps
+LoggedQuantileAgent.update_period = 4
+LoggedQuantileAgent.target_update_period = 8000 # agent steps
+LoggedQuantileAgent.epsilon_train = 0.01
+LoggedQuantileAgent.epsilon_eval = 0.001
+LoggedQuantileAgent.epsilon_decay_period = 250000 # agent steps
+LoggedQuantileAgent.replay_scheme = 'uniform'
+LoggedQuantileAgent.tf_device = '/gpu:0'  # use '/cpu:*' for non-GPU version
+LoggedQuantileAgent.optimizer = @tf.train.AdamOptimizer()
+
+tf.train.AdamOptimizer.learning_rate = 0.00005
+tf.train.AdamOptimizer.epsilon = 0.0003125
+
+atari_lib.create_atari_environment.game_name = 'Pong'
+atari_lib.create_atari_environment.sticky_actions = True
+Runner.num_iterations = 200
+Runner.training_steps = 250000
+Runner.evaluation_steps = 125000
+Runner.max_steps_per_episode = 27000
+
+WrappedLoggedPrioritizedReplayBuffer.replay_capacity = 1000000
+WrappedLoggedPrioritizedReplayBuffer.batch_size = 32

@@ -1,0 +1,32 @@
+# Hyperparameters follow the classic Nature DQN, but we modify as necessary to
+# match those used in Rainbow (Hessel et al., 2018), to ensure apples-to-apples
+# comparison.
+import dopamine.discrete_domains.atari_lib
+import batch_rl.baselines.run_experiment
+import batch_rl.baselines.agents.random_agent
+import gin.tf.external_configurables
+
+RandomAgent.gamma = 0.99
+RandomAgent.update_horizon = 1
+RandomAgent.min_replay_history = 20000  # agent steps
+RandomAgent.update_period = 4
+RandomAgent.target_update_period = 8000  # agent steps
+RandomAgent.epsilon_train = 0.01
+RandomAgent.epsilon_eval = 0.001
+RandomAgent.epsilon_decay_period = 250000  # agent steps
+RandomAgent.tf_device = '/cpu:*'
+RandomAgent.optimizer = @tf.train.RMSPropOptimizer()
+
+tf.train.RMSPropOptimizer.learning_rate = 0.00025
+tf.train.RMSPropOptimizer.decay = 0.95
+tf.train.RMSPropOptimizer.momentum = 0.0
+tf.train.RMSPropOptimizer.epsilon = 0.00001
+tf.train.RMSPropOptimizer.centered = True
+
+atari_lib.create_atari_environment.game_name = 'Pong'
+# Sticky actions with probability 0.25, as suggested by (Machado et al., 2017).
+atari_lib.create_atari_environment.sticky_actions = True
+LoggedRunner.num_iterations = 1
+LoggedRunner.training_steps = 10  # agent steps
+LoggedRunner.evaluation_steps = 125000  # agent steps
+LoggedRunner.max_steps_per_episode = 27000  # agent steps

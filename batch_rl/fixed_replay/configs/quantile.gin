@@ -1,0 +1,36 @@
+# Hyperparameters follow Dabney et al. (2017) but we modify as necessary to
+# match those used in Rainbow (Hessel et al., 2018), to ensure apples-to-apples
+# comparison.
+import batch_rl.fixed_replay.agents.quantile_agent
+import dopamine.discrete_domains.atari_lib
+import batch_rl.fixed_replay.run_experiment
+import batch_rl.fixed_replay.replay_memory.fixed_replay_buffer
+import gin.tf.external_configurables
+
+FixedReplayQuantileAgent.num_atoms = 200
+FixedReplayQuantileAgent.gamma = 0.99
+FixedReplayQuantileAgent.update_horizon = 1
+FixedReplayQuantileAgent.min_replay_history = 20000 # agent steps
+FixedReplayQuantileAgent.update_period = 4
+FixedReplayQuantileAgent.target_update_period = 8000 # agent steps
+FixedReplayQuantileAgent.epsilon_train = 0.01
+FixedReplayQuantileAgent.epsilon_eval = 0.001
+FixedReplayQuantileAgent.epsilon_decay_period = 250000 # agent steps
+FixedReplayQuantileAgent.replay_scheme = 'uniform'
+FixedReplayQuantileAgent.tf_device = '/gpu:0'  # use '/cpu:*' for non-GPU version
+FixedReplayQuantileAgent.optimizer = @tf.train.AdamOptimizer()
+
+tf.train.AdamOptimizer.learning_rate = 0.00005
+tf.train.AdamOptimizer.epsilon = 0.0003125
+
+atari_lib.create_atari_environment.game_name = 'Pong'
+atari_lib.create_atari_environment.sticky_actions = True
+FixedReplayRunner.num_iterations = 200
+FixedReplayRunner.training_steps = 250000
+FixedReplayRunner.evaluation_steps = 125000
+FixedReplayRunner.max_steps_per_episode = 27000
+
+WrappedFixedReplayBuffer.replay_capacity = 1000000
+WrappedFixedReplayBuffer.batch_size = 32
+
+
