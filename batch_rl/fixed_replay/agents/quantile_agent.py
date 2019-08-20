@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Implicit Quantile Agent with fixed replay buffer(s)."""
+"""Quantile Regression agent (QR-DQN) with fixed replay buffer(s)."""
 
 from __future__ import absolute_import
 from __future__ import division

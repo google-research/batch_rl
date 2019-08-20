@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Helper functions for fixed replay agents."""
+"""Helper functions for multi head (Ensemble-DQN and REM) agents."""
 
 import numpy as np
 import tensorflow as tf
