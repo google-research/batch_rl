@@ -1,0 +1,33 @@
+import dopamine.discrete_domains.atari_lib
+import dopamine.discrete_domains.run_experiment
+import dopamine.replay_memory.circular_replay_buffer
+import batch_rl.multi_head.multi_network_dqn_agent
+import gin.tf.external_configurables
+
+MultiNetworkDQNAgent.gamma = 0.99
+MultiNetworkDQNAgent.update_horizon = 1
+MultiNetworkDQNAgent.min_replay_history = 20000  # agent steps
+MultiNetworkDQNAgent.update_period = 4
+MultiNetworkDQNAgent.target_update_period = 8000  # agent steps
+MultiNetworkDQNAgent.epsilon_train = 0.01
+MultiNetworkDQNAgent.epsilon_eval = 0.001
+MultiNetworkDQNAgent.epsilon_decay_period = 250000  # agent steps
+MultiNetworkDQNAgent.tf_device = '/gpu:0' # Use '/cpu:*' for CPUs
+MultiNetworkDQNAgent.num_networks = 4
+MultiNetworkDQNAgent.transform_strategy = 'STOCHASTIC'
+MultiNetworkDQNAgent.use_deep_exploration = True
+MultiNetworkDQNAgent.optimizer = @tf.train.AdamOptimizer()
+
+tf.train.AdamOptimizer.learning_rate = 0.00005
+tf.train.AdamOptimizer.epsilon = 0.00003125
+
+atari_lib.create_atari_environment.game_name = 'Pong'
+# Sticky actions with probability 0.25, as suggested by (Machado et al., 2017).
+atari_lib.create_atari_environment.sticky_actions = True
+Runner.num_iterations = 200
+Runner.training_steps = 250000  # agent steps
+Runner.evaluation_steps = 125000  # agent steps
+Runner.max_steps_per_episode = 27000  # agent steps
+
+WrappedReplayBuffer.replay_capacity = 1000000
+WrappedReplayBuffer.batch_size = 32

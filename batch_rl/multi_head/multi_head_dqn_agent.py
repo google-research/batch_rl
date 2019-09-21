@@ -15,14 +15,10 @@
 
 """Multi Head DQN agent."""
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import collections
 import os
 
-import batch_rl.multi_head.atari_helpers as atari_helpers
+from batch_rl.multi_head import atari_helpers
 from dopamine.agents.dqn import dqn_agent
 import gin
 import tensorflow as tf
@@ -50,7 +46,7 @@ class MultiHeadDQNAgent(dqn_agent.DQNAgent):
       transform_strategy: str, Possible options include (1)
       'STOCHASTIC' for multiplication with a left stochastic matrix. (2)
       'IDENTITY', in which case the heads are not transformed.
-      num_convex_combinations: If transform_strategy is 'STOCHASTIC' or
+      num_convex_combinations: If transform_strategy is 'STOCHASTIC',
         then this argument specifies the number of random
         convex combinations to be created. If None, `num_heads` convex
         combinations are created.

@@ -12,8 +12,6 @@ off-policy agents](https://i.imgur.com/Ntgcecq.png){ width=90%}
 [paper]: https://arxiv.org/pdf/1907.04543.pdf
 [dopamine]: https://github.com/google/dopamine
 
-## Asymptotic Performance of offline agents on DQN data
-![Number of games where a batch agent outperforms online DQN](https://i.imgur.com/vNDbSIk.png){width=49%} ![Asymptotic Performance of offline agents on DQN data](https://i.imgur.com/msNs8VV.png){width=49%}
 
 ## Atari-Replay Dataset (Logged DQN data) 
 
@@ -27,14 +25,14 @@ This logged DQN data can be found in the public [GCP bucket][gcp_bucket]
 `gs://atari-replay-datasets` which can be downloaded using [`gsutil`][gsutil].
 To install gsutil, follow the instructions [here][gsutil_install].
 
-After installing gsutil, run the command:
+After installing gsutil, run the command to copy the entire dataset:
 
 ```
 gsutil -m cp -R gs://atari-replay-datasets/dqn
 ```
 
 To run the dataset only for a specific Atari 2600 game (*e.g.*, replace `GAME_NAME`
-by `Pong` to download the logged DQN datasets for the game of Pong),
+by `Pong` to download the logged DQN replay datasets for the game of Pong),
 run the command:
 
 ```
@@ -58,6 +56,8 @@ agent's previous action again, instead of the agent's new action.
 [ale]: https://github.com/mgbellemare/Arcade-Learning-Environment
 [gcp_bucket]: https://console.cloud.google.com/storage/browser/atari-replay-datasets
 
+## Asymptotic Performance of offline agents on Atari-replay dataset
+![Number of games where a batch agent outperforms online DQN](https://i.imgur.com/gAWGgJx.png){width=45%} ![Asymptotic Performance of offline agents on DQN data](https://i.imgur.com/QJiCg37.png){width=45%}
 
 ## Installation
 Install the dependencies below, based on your operating system, and then
