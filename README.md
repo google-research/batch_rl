@@ -115,8 +115,13 @@ python -um batch_rl.tests.atari_init_test
 To test an agent using a fixed replay buffer, first generate the data for the
 Atari 2600 game of `Pong` to `$DATA_DIR`.
 
+```
+export DATA_DIR="Insert directory name here"
+mkdir -p $DATA_DIR/Pong
+gsutil -m cp -R gs://batch-rl-datasets/dqn/Pong/1 $DATA_DIR/Pong
+```
 
-Assuming the data is generated in `$DATA_DIR/Pong/1/replay_logs`, run the `FixedReplayDQNAgent` on `Pong` using the logged DQN data:
+Assuming the replay data is present in `$DATA_DIR/Pong/1/replay_logs`, run the `FixedReplayDQNAgent` on `Pong` using the logged DQN data:
 
 ```
 cd batch_rl
