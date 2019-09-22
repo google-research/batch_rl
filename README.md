@@ -6,8 +6,8 @@ In this work, we use the logged experiences of a DQN agent for training off-poli
 agents (shown below) in an offline setting (*i.e.*, [batch RL][batch_rl]) without any new
 interaction with the environment during training.
 
-![Architechture of different
-off-policy agents](https://i.imgur.com/Ntgcecq.png){ width=90%}
+<img src="https://i.imgur.com/Ntgcecq.png" width="95%" 
+     alt="Architechture of different off-policy agents" >
 
 [paper]: https://arxiv.org/pdf/1907.04543.pdf
 [dopamine]: https://github.com/google/dopamine
@@ -57,7 +57,13 @@ agent's previous action again, instead of the agent's new action.
 [gcp_bucket]: https://console.cloud.google.com/storage/browser/atari-replay-datasets
 
 ## Asymptotic Performance of offline agents on Atari-replay dataset
-![Number of games where a batch agent outperforms online DQN](https://i.imgur.com/gAWGgJx.png){width=45%} ![Asymptotic Performance of offline agents on DQN data](https://i.imgur.com/QJiCg37.png){width=45%}
+
+<div>
+  <img src="https://i.imgur.com/gAWGgJx.png" width="49%" 
+       alt="Number of games where a batch agent outperforms online DQN">
+  <img src="https://i.imgur.com/QJiCg37.png" width="49%" 
+       alt="Asymptotic Performance of offline agents on DQN data">
+</div>
 
 ## Installation
 Install the dependencies below, based on your operating system, and then
