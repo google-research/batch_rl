@@ -1,5 +1,5 @@
 # coding=utf-8
-# Copyright 2019 The Google Research Authors.
+# Copyright 2020 The Google Research Authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +17,8 @@
 
 import numpy as np
 import tensorflow as tf
-slim = tf.contrib.slim
+from tensorflow.contrib import slim as contrib_slim
+slim = contrib_slim
 
 
 def multi_head_network(
@@ -107,13 +108,12 @@ def nature_dqn_network(state, num_actions):
   """
   net = tf.cast(state, tf.float32)
   net = tf.div(net, 255.)
-  net = tf.contrib.slim.conv2d(net, 32, [8, 8], stride=4)
-  net = tf.contrib.slim.conv2d(net, 64, [4, 4], stride=2)
-  net = tf.contrib.slim.conv2d(net, 64, [3, 3], stride=1)
-  net = tf.contrib.slim.flatten(net)
-  net = tf.contrib.slim.fully_connected(net, 512)
-  q_values = tf.contrib.slim.fully_connected(
-      net, num_actions, activation_fn=None)
+  net = contrib_slim.conv2d(net, 32, [8, 8], stride=4)
+  net = contrib_slim.conv2d(net, 64, [4, 4], stride=2)
+  net = contrib_slim.conv2d(net, 64, [3, 3], stride=1)
+  net = contrib_slim.flatten(net)
+  net = contrib_slim.fully_connected(net, 512)
+  q_values = contrib_slim.fully_connected(net, num_actions, activation_fn=None)
   return q_values
 
 

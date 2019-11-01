@@ -1,5 +1,5 @@
 # coding=utf-8
-# Copyright 2019 The Google Research Authors.
+# Copyright 2020 The Google Research Authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -30,8 +30,10 @@ from dopamine.agents.rainbow import rainbow_agent
 import gin
 import numpy as np
 import tensorflow as tf
+from tensorflow.contrib import layers as contrib_layers
+from tensorflow.contrib import slim as contrib_slim
 
-slim = tf.contrib.slim
+slim = contrib_slim
 
 
 @gin.configurable
@@ -147,7 +149,7 @@ class QuantileAgent(rainbow_agent.RainbowAgent):
         weights_initializer=weights_initializer)
 
     logits = tf.reshape(net, [-1, self.num_actions, self._num_atoms])
-    probabilities = tf.contrib.layers.softmax(tf.zeros_like(logits))
+    probabilities = contrib_layers.softmax(tf.zeros_like(logits))
     q_values = tf.reduce_mean(logits, axis=2)
     return self._get_network_type()(q_values, logits, probabilities)
 
