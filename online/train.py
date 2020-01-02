@@ -29,7 +29,7 @@ from batch_rl.multi_head import quantile_agent
 from dopamine.agents.dqn import dqn_agent
 from dopamine.agents.rainbow import rainbow_agent
 from dopamine.discrete_domains import run_experiment
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 flags.DEFINE_string('agent_name', 'dqn', 'Name of the agent.')
 

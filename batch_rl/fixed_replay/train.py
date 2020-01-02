@@ -36,7 +36,7 @@ from batch_rl.fixed_replay.agents import quantile_agent
 from batch_rl.fixed_replay.agents import rainbow_agent
 
 from dopamine.discrete_domains import run_experiment as base_run_experiment
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 from dopamine.discrete_domains import train as base_train
 

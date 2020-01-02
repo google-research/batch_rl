@@ -24,7 +24,7 @@ import shutil
 from absl import flags
 
 from batch_rl.fixed_replay import train
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 FLAGS = flags.FLAGS
 

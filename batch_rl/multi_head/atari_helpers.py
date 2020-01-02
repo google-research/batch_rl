@@ -16,7 +16,7 @@
 """Helper functions for multi head (Ensemble-DQN and REM) agents."""
 
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from tensorflow.contrib import slim as contrib_slim
 slim = contrib_slim
 

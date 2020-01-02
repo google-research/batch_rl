@@ -29,7 +29,7 @@ from dopamine.agents.dqn import dqn_agent
 from dopamine.agents.rainbow import rainbow_agent
 import gin
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from tensorflow.contrib import layers as contrib_layers
 from tensorflow.contrib import slim as contrib_slim
 

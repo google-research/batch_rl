@@ -30,7 +30,7 @@ from dopamine.replay_memory import prioritized_replay_buffer
 
 import gin
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 
 STORE_FILENAME_PREFIX = circular_replay_buffer.STORE_FILENAME_PREFIX

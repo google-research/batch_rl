@@ -24,7 +24,7 @@ import os
 from batch_rl.fixed_replay.replay_memory import fixed_replay_buffer
 from batch_rl.multi_head import quantile_agent
 import gin
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 
 @gin.configurable

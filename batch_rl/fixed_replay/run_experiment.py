@@ -26,7 +26,7 @@ from dopamine.discrete_domains import iteration_statistics
 from dopamine.discrete_domains import run_experiment
 
 import gin
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 
 @gin.configurable

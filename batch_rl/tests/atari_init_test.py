@@ -24,7 +24,7 @@ import shutil
 from absl import flags
 from batch_rl.baselines import train
 from dopamine.discrete_domains import train as base_train  # pylint: disable=unused-import
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 FLAGS = flags.FLAGS
 
