@@ -15,7 +15,6 @@
 
 """Multi Head DQN agent."""
 
-import collections
 import os
 
 from batch_rl.multi_head import atari_helpers
@@ -34,7 +33,7 @@ class MultiHeadDQNAgent(dqn_agent.DQNAgent):
                num_heads=1,
                transform_strategy='IDENTITY',
                num_convex_combinations=1,
-               network=atari_helpers.multi_head_network,
+               network=atari_helpers.MultiHeadQNetwork,
                init_checkpoint_dir=None,
                **kwargs):
     """Initializes the agent and constructs the components of its graph.
@@ -50,10 +49,10 @@ class MultiHeadDQNAgent(dqn_agent.DQNAgent):
         then this argument specifies the number of random
         convex combinations to be created. If None, `num_heads` convex
         combinations are created.
-      network: function expecting three parameters: (num_actions, network_type,
-        state). This function will return the network_type object containing the
-        tensors output by the network. See atari_helpers.multi_head_network as
-        an example.
+      network: tf.Keras.Model. A call to this object will return an
+        instantiation of the network provided. The network returned can be run
+        with different inputs to create different outputs. See
+        atari_helpers.MultiHeadQNetwork as an example.
       init_checkpoint_dir: str, directory from which initial checkpoint before
         training is loaded if there doesn't exist any checkpoint in the current
         agent directory. If None, no initial checkpoint is loaded.
@@ -76,27 +75,30 @@ class MultiHeadDQNAgent(dqn_agent.DQNAgent):
     super(MultiHeadDQNAgent, self).__init__(
         sess, num_actions, network=network, **kwargs)
 
-  def _get_network_type(self):
-    """Returns the type of the outputs of a Q value network.
+  def _create_network(self, name):
+    """Builds a multi-head Q-network that outputs Q-values for multiple heads.
 
+    Args:
+      name: str, this name is passed to the tf.keras.Model and used to create
+        variable scope under the hood by the tf.keras.Model.
     Returns:
-      net_type: _network_type object defining the outputs of the network.
+      network: tf.keras.Model, the network instantiated by the Keras model.
     """
-    return collections.namedtuple('multi_head_DQN_network',
-                                  ['q_heads', 'unordered_q_heads', 'q_values'])
-
-  def _network_template(self, state):
-    kwargs = {}
+    kwargs = {}  # Used for passing the transformation matrix if any
     if self._q_heads_transform is None:
-      if self.transform_strategy == 'STOCHASTIC':
+      if self.reorder_strategy == 'STOCHASTIC':
         tf.logging.info('Creating q_heads transformation matrix..')
         self._q_heads_transform = atari_helpers.random_stochastic_matrix(
             self.num_heads, num_cols=self._num_convex_combinations)
     if self._q_heads_transform is not None:
       kwargs.update({'transform_matrix': self._q_heads_transform})
-    return self.network(self.num_actions, self.num_heads,
-                        self._get_network_type(), state,
-                        self.transform_strategy, **kwargs)
+    network = self.network(
+        num_actions=self.num_actions,
+        num_heads=self.num_heads,
+        transform_strategy=self.transform_strategy,
+        name=name,
+        **kwargs)
+    return network
 
   def _build_target_q_op(self):
     """Build an op used as a target for the Q-value.
