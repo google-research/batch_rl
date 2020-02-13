@@ -4,18 +4,18 @@ import dopamine.discrete_domains.run_experiment
 import dopamine.replay_memory.prioritized_replay_buffer
 import gin.tf.external_configurables
 
-QuantileAgent.num_atoms = 200
-QuantileAgent.gamma = 0.99
-QuantileAgent.update_horizon = 1
-QuantileAgent.min_replay_history = 20000 # agent steps
-QuantileAgent.update_period = 4
-QuantileAgent.target_update_period = 8000 # agent steps
-QuantileAgent.epsilon_train = 0.01
-QuantileAgent.epsilon_eval = 0.001
-QuantileAgent.epsilon_decay_period = 250000 # agent steps
-QuantileAgent.replay_scheme = 'uniform'
-QuantileAgent.tf_device = '/gpu:0'  # use '/cpu:*' for non-GPU version
-QuantileAgent.optimizer = @tf.train.AdamOptimizer()
+batch_rl.multi_head.quantile_agent.QuantileAgent.num_atoms = 200
+batch_rl.multi_head.quantile_agent.QuantileAgent.gamma = 0.99
+batch_rl.multi_head.quantile_agent.QuantileAgent.update_horizon = 1
+batch_rl.multi_head.quantile_agent.QuantileAgent.min_replay_history = 20000 # agent steps
+batch_rl.multi_head.quantile_agent.QuantileAgent.update_period = 4
+batch_rl.multi_head.quantile_agent.QuantileAgent.target_update_period = 8000 # agent steps
+batch_rl.multi_head.quantile_agent.QuantileAgent.epsilon_train = 0.01
+batch_rl.multi_head.quantile_agent.QuantileAgent.epsilon_eval = 0.001
+batch_rl.multi_head.quantile_agent.QuantileAgent.epsilon_decay_period = 250000 # agent steps
+batch_rl.multi_head.quantile_agent.QuantileAgent.replay_scheme = 'uniform'
+batch_rl.multi_head.quantile_agent.QuantileAgent.tf_device = '/gpu:0'  # use '/cpu:*' for non-GPU version
+batch_rl.multi_head.quantile_agent.QuantileAgent.optimizer = @tf.train.AdamOptimizer()
 
 tf.train.AdamOptimizer.learning_rate = 0.00005
 tf.train.AdamOptimizer.epsilon = 0.0003125

@@ -23,17 +23,11 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-
-
+from batch_rl.multi_head import atari_helpers
 from dopamine.agents.dqn import dqn_agent
 from dopamine.agents.rainbow import rainbow_agent
 import gin
-import numpy as np
 import tensorflow.compat.v1 as tf
-from tensorflow.contrib import layers as contrib_layers
-from tensorflow.contrib import slim as contrib_slim
-
-slim = contrib_slim
 
 
 @gin.configurable
@@ -44,6 +38,7 @@ class QuantileAgent(rainbow_agent.RainbowAgent):
                sess,
                num_actions,
                kappa=1.0,
+               network=atari_helpers.QuantileNetwork,
                num_atoms=200,
                gamma=0.99,
                update_horizon=1,
@@ -63,9 +58,14 @@ class QuantileAgent(rainbow_agent.RainbowAgent):
     """Initializes the agent and constructs the Graph.
 
     Args:
-      sess: A `tf.Session`object  for running associated ops.
+      sess: A `tf.Session` object for running associated ops.
       num_actions: Int, number of actions the agent can take at any state.
       kappa: Float, Huber loss cutoff.
+      network: tf.Keras.Model, expects 3 parameters: num_actions, num_atoms,
+        network_type. A call to this object will return an instantiation of the
+        network provided. The network returned can be run with different inputs
+        to create different outputs. See atari_helpers.QuantileNetwork
+        as an example.
       num_atoms: Int, the number of buckets for the value function distribution.
       gamma: Float, exponential decay factor as commonly used in the RL
         literature.
@@ -97,6 +97,7 @@ class QuantileAgent(rainbow_agent.RainbowAgent):
     super(QuantileAgent, self).__init__(
         sess=sess,
         num_actions=num_actions,
+        network=network,
         num_atoms=num_atoms,
         gamma=gamma,
         update_horizon=update_horizon,
@@ -113,45 +114,21 @@ class QuantileAgent(rainbow_agent.RainbowAgent):
         summary_writer=summary_writer,
         summary_writing_frequency=summary_writing_frequency)
 
-  def _network_template(self, state):
-    r"""Builds a Quantile ConvNet.
+  def _create_network(self, name):
+    """Builds a Quantile ConvNet.
 
     Equivalent to Rainbow ConvNet, only now the output logits are interpreted
     as quantiles.
 
     Args:
-      state: A tf.placeholder for the RL state.
+      name: str, this name is passed to the tf.keras.Model and used to create
+        variable scope under the hood by the tf.keras.Model.
 
     Returns:
-      net: A tf.Graphdef:
-        `\theta : \mathcal{X}\times\mathcal{A}\rightarrow\mathbb{R}^N`
-        where `N` is num_atoms.
+      network: tf.keras.Model, the network instantiated by the Keras model.
     """
-
-    weights_initializer = slim.variance_scaling_initializer(
-        factor=1.0 / np.sqrt(3.0), mode='FAN_IN', uniform=True)
-
-    net = tf.cast(state, tf.float32)
-    net = tf.div(net, 255.)
-    net = slim.conv2d(
-        net, 32, [8, 8], stride=4, weights_initializer=weights_initializer)
-    net = slim.conv2d(
-        net, 64, [4, 4], stride=2, weights_initializer=weights_initializer)
-    net = slim.conv2d(
-        net, 64, [3, 3], stride=1, weights_initializer=weights_initializer)
-    net = slim.flatten(net)
-    net = slim.fully_connected(
-        net, 512, weights_initializer=weights_initializer)
-    net = slim.fully_connected(
-        net,
-        self.num_actions * self._num_atoms,
-        activation_fn=None,
-        weights_initializer=weights_initializer)
-
-    logits = tf.reshape(net, [-1, self.num_actions, self._num_atoms])
-    probabilities = contrib_layers.softmax(tf.zeros_like(logits))
-    q_values = tf.reduce_mean(logits, axis=2)
-    return self._get_network_type()(q_values, logits, probabilities)
+    network = self.network(self.num_actions, self._num_atoms, name=name)
+    return network
 
   def _build_target_distribution(self):
     batch_size = tf.shape(self._replay.rewards)[0]
