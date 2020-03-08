@@ -1,12 +1,13 @@
-# Striving for Simplicity in Off-Policy Deep Reinforcement Learning
+# An Optimistic Perspective on Offline Reinforcement Learning
 
-This project provides the open source implementation using the 
-[Dopamine][dopamine] framework for running experiments mentioned in [Striving for Simplicity in Off-Policy Deep Reinforcement Learning][paper].
+This project provides the open source implementation using the
+[Dopamine][dopamine] framework for running experiments mentioned in [An Optimistic Perspective on Offline Reinforcement Learning][paper].
 In this work, we use the logged experiences of a DQN agent for training off-policy
 agents (shown below) in an offline setting (*i.e.*, [batch RL][batch_rl]) without any new
-interaction with the environment during training.
+interaction with the environment during training. Refer to
+[offline_rl.github.io][project_page] for the project page.
 
-<img src="https://i.imgur.com/Ntgcecq.png" width="95%" 
+<img src="https://i.imgur.com/Ntgcecq.png" width="95%"
      alt="Architechture of different off-policy agents" >
 
 [paper]: https://arxiv.org/pdf/1907.04543.pdf
@@ -55,6 +56,7 @@ agent's previous action again, instead of the agent's new action.
 [stochastic_ale]: https://arxiv.org/abs/1709.06009
 [ale]: https://github.com/mgbellemare/Arcade-Learning-Environment
 [gcp_bucket]: https://console.cloud.google.com/storage/browser/atari-replay-datasets
+[project_page]: http://offline-rl.github.io
 
 ## Asymptotic Performance of offline agents on Atari-replay dataset
 
@@ -185,14 +187,18 @@ Citing
 If you find this open source release useful, please reference in your paper:
 
 > Agarwal, R., Schuurmans, D. & Norouzi, M.. (2019).
-> Striving for Simplicity in Off-policy Deep Reinforcement Learning.
+> An Optimistic Perspective on Offline Reinforcement Learning
 > *arXiv preprint arXiv:1907.04543*.
 
     @article{agarwal2019striving,
-      title={Striving for Simplicity in Off-policy Deep Reinforcement Learning},
+      title={An Optimistic Perspective on Offline Reinforcement Learning},
       author={Agarwal, Rishabh and Schuurmans, Dale and Norouzi, Mohammad},
       journal={arXiv preprint arXiv:1907.04543},
       year={2019}
     }
+    
+Note: A previous version of this work was titled "Striving for Simplicity in Off
+Policy Deep Reinforcement Learning" and was presented as a contributed talk at
+NeurIPS 2019 DRL Workshop.
 
 Disclaimer: This is not an official Google product.
