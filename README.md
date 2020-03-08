@@ -5,7 +5,7 @@ This project provides the open source implementation using the
 In this work, we use the logged experiences of a DQN agent for training off-policy
 agents (shown below) in an offline setting (*i.e.*, [batch RL][batch_rl]) without any new
 interaction with the environment during training. Refer to
-[offline_rl.github.io][project_page] for the project page.
+[offline-rl.github.io][project_page] for the project page.
 
 <img src="https://i.imgur.com/Ntgcecq.png" width="95%"
      alt="Architechture of different off-policy agents" >
@@ -56,7 +56,7 @@ agent's previous action again, instead of the agent's new action.
 [stochastic_ale]: https://arxiv.org/abs/1709.06009
 [ale]: https://github.com/mgbellemare/Arcade-Learning-Environment
 [gcp_bucket]: https://console.cloud.google.com/storage/browser/atari-replay-datasets
-[project_page]: http://offline-rl.github.io
+[project_page]: https://offline-rl.github.io
 
 ## Asymptotic Performance of offline agents on Atari-replay dataset
 
