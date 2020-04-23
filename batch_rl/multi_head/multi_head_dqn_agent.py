@@ -86,7 +86,7 @@ class MultiHeadDQNAgent(dqn_agent.DQNAgent):
     """
     kwargs = {}  # Used for passing the transformation matrix if any
     if self._q_heads_transform is None:
-      if self.reorder_strategy == 'STOCHASTIC':
+      if self.transform_strategy == 'STOCHASTIC':
         tf.logging.info('Creating q_heads transformation matrix..')
         self._q_heads_transform = atari_helpers.random_stochastic_matrix(
             self.num_heads, num_cols=self._num_convex_combinations)
