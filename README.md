@@ -190,12 +190,13 @@ If you find this open source release useful, please reference in your paper:
 > An Optimistic Perspective on Offline Reinforcement Learning
 > *arXiv preprint arXiv:1907.04543*.
 
-    @article{agarwal2019striving,
+    @article{agarwal2019optimistic,
       title={An Optimistic Perspective on Offline Reinforcement Learning},
       author={Agarwal, Rishabh and Schuurmans, Dale and Norouzi, Mohammad},
       journal={arXiv preprint arXiv:1907.04543},
       year={2019}
     }
+
     
 Note: A previous version of this work was titled "Striving for Simplicity in Off
 Policy Deep Reinforcement Learning" and was presented as a contributed talk at
