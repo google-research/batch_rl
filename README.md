@@ -186,15 +186,15 @@ Citing
 ------
 If you find this open source release useful, please reference in your paper:
 
-> Agarwal, R., Schuurmans, D. & Norouzi, M.. (2019).
+> Agarwal, R., Schuurmans, D. & Norouzi, M.. (2020).
 > An Optimistic Perspective on Offline Reinforcement Learning
-> *arXiv preprint arXiv:1907.04543*.
+> *International Conference on Machine Learning (ICML)*.
 
     @article{agarwal2019optimistic,
       title={An Optimistic Perspective on Offline Reinforcement Learning},
       author={Agarwal, Rishabh and Schuurmans, Dale and Norouzi, Mohammad},
-      journal={arXiv preprint arXiv:1907.04543},
-      year={2019}
+      journal={International Conference on Machine Learning},
+      year={2020}
     }
 
     
