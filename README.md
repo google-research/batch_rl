@@ -1,4 +1,4 @@
-# An Optimistic Perspective on Offline Reinforcement Learning
+# An Optimistic Perspective on Offline Reinforcement Learning (ICML, 2020)
 
 This project provides the open source implementation using the
 [Dopamine][dopamine] framework for running experiments mentioned in [An Optimistic Perspective on Offline Reinforcement Learning][paper].
