@@ -131,7 +131,7 @@ class FixedReplayBuffer(object):
     pass
 
 
-@gin.configurable(blacklist=['observation_shape', 'stack_size',
+@gin.configurable(denylist=['observation_shape', 'stack_size',
                              'update_horizon', 'gamma'])
 class WrappedFixedReplayBuffer(circular_replay_buffer.WrappedReplayBuffer):
   """Wrapper of OutOfGraphReplayBuffer with an in graph sampling mechanism."""

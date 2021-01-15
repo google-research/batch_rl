@@ -88,7 +88,7 @@ class OutOfGraphLoggedReplayBuffer(
     self.add_count = add_count
 
 
-@gin.configurable(blacklist=['observation_shape', 'stack_size',
+@gin.configurable(denylist=['observation_shape', 'stack_size',
                              'update_horizon', 'gamma'])
 class WrappedLoggedReplayBuffer(circular_replay_buffer.WrappedReplayBuffer):
   """Wrapper of OutOfGraphLoggedReplayBuffer with an in graph sampling mechanism."""
