@@ -38,7 +38,7 @@ from batch_rl.fixed_replay.agents import rainbow_agent
 from dopamine.discrete_domains import run_experiment as base_run_experiment
 import tensorflow.compat.v1 as tf
 
-from dopamine.discrete_domains import train as base_train
+from dopamine.google import xm_utils
 
 flags.DEFINE_string('agent_name', 'dqn', 'Name of the agent.')
 flags.DEFINE_string('replay_dir', None, 'Directory from which to load the '

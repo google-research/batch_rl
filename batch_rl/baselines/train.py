@@ -36,8 +36,17 @@ from batch_rl.baselines.run_experiment import LoggedRunner
 from dopamine.discrete_domains import run_experiment
 import tensorflow.compat.v1 as tf
 
-
 flags.DEFINE_string('agent_name', 'dqn', 'Name of the agent.')
+flags.DEFINE_string('base_dir', None,
+                    'Base directory to host all required sub-directories.')
+flags.DEFINE_multi_string(
+    'gin_files', [], 'List of paths to gin configuration files (e.g.'
+    '"third_party/py/dopamine/agents/dqn/dqn.gin").')
+flags.DEFINE_multi_string(
+    'gin_bindings', [],
+    'Gin bindings to override the values set in the config files '
+    '(e.g. "DQNAgent.epsilon_train=0.1",'
+    '      "create_environment.game_name="Pong"").')
 FLAGS = flags.FLAGS
 
 
