@@ -52,6 +52,14 @@ experience tuples due to frame skipping (*i.e.*, repeating a selected action for
 there is 25% chance at every time step that the environment will execute the
 agent's previous action again, instead of the agent's new action.
 
+#### Publications & submissions using DQN Replay Dataset (please open a pull request for missing entries):
+- [Revisiting Fundamentals of Experience Replay](https://arxiv.org/abs/2007.06700) (ICML 2020)
+- [RL Unplugged: A Suite of Benchmarks for Offline Reinforcement Learning](https://arxiv.org/abs/2006.13888) (NeurIPS 2020)
+- [Conservative Q-Learning for Offline Reinforcement Learning](https://arxiv.org/abs/2006.04779) (NeurIPS 2020)
+- [Implicit Under-Parameterization Inhibits Data-Efficient Deep Reinforcement Learning](https://arxiv.org/abs/2010.14498) (ICLR 2021)
+- [Addressing Extrapolation Error in Deep Offline Reinforcement Learning](https://openreview.net/forum?id=OCRKCul3eKN) (Submission, ICLR 2021)
+
+
 [nature_dqn]: https://www.nature.com/articles/nature14236?wm=book_wap_0005
 [gsutil_install]: https://cloud.google.com/storage/docs/gsutil_install#install
 [gsutil]: https://cloud.google.com/storage/docs/gsutil
