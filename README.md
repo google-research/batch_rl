@@ -57,6 +57,7 @@ agent's previous action again, instead of the agent's new action.
 - [RL Unplugged: A Suite of Benchmarks for Offline Reinforcement Learning](https://arxiv.org/abs/2006.13888) (NeurIPS 2020)
 - [Conservative Q-Learning for Offline Reinforcement Learning](https://arxiv.org/abs/2006.04779) (NeurIPS 2020)
 - [Implicit Under-Parameterization Inhibits Data-Efficient Deep Reinforcement Learning](https://arxiv.org/abs/2010.14498) (ICLR 2021)
+- [Acme: A new framework for distributed reinforcement learning](https://arxiv.org/abs/2006.00979) (arXiv 2020)
 - [Addressing Extrapolation Error in Deep Offline Reinforcement Learning](https://openreview.net/forum?id=OCRKCul3eKN) (Submission, ICLR 2021)
 
 
