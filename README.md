@@ -13,6 +13,8 @@ interaction with the environment during training. Refer to
 [paper]: https://arxiv.org/pdf/1907.04543.pdf
 [dopamine]: https://github.com/google/dopamine
 
+# How to train offline agents on 50M dataset without RAM errors?
+Please refer to https://github.com/google-research/batch_rl/issues/10.
 
 ## DQN Replay Dataset (Logged DQN data)
 
@@ -48,6 +50,15 @@ experience tuples due to frame skipping (*i.e.*, repeating a selected action for
 there is 25% chance at every time step that the environment will execute the
 agent's previous action again, instead of the agent's new action.
 
+#### Publications & submissions using DQN Replay Dataset (please open a pull request for missing entries):
+- [Revisiting Fundamentals of Experience Replay](https://arxiv.org/abs/2007.06700) (ICML 2020)
+- [RL Unplugged: A Suite of Benchmarks for Offline Reinforcement Learning](https://arxiv.org/abs/2006.13888) (NeurIPS 2020)
+- [Conservative Q-Learning for Offline Reinforcement Learning](https://arxiv.org/abs/2006.04779) (NeurIPS 2020)
+- [Implicit Under-Parameterization Inhibits Data-Efficient Deep Reinforcement Learning](https://arxiv.org/abs/2010.14498) (ICLR 2021)
+- [Acme: A new framework for distributed reinforcement learning](https://arxiv.org/abs/2006.00979) (arXiv 2020)
+- [Addressing Extrapolation Error in Deep Offline Reinforcement Learning](https://openreview.net/forum?id=OCRKCul3eKN) (Submission, ICLR 2021)
+
+
 [nature_dqn]: https://www.nature.com/articles/nature14236?wm=book_wap_0005
 [gsutil_install]: https://cloud.google.com/storage/docs/gsutil_install#install
 [gsutil]: https://cloud.google.com/storage/docs/gsutil
@@ -56,10 +67,6 @@ agent's previous action again, instead of the agent's new action.
 [ale]: https://github.com/mgbellemare/Arcade-Learning-Environment
 [gcp_bucket]: https://console.cloud.google.com/storage/browser/atari-replay-datasets
 [project_page]: https://offline-rl.github.io
-
-### Dataset Visualization Colab
-A colab showing how to load the dataset using dopamine replay buffers and
-visualize the observations can be found [here](https://colab.research.google.com/drive/17JQzRpIrguMjmZN5bL-RYzDJD5GSV8MJ?usp=sharing).
 
 ## Asymptotic Performance of offline agents on Atari-replay dataset
 
@@ -193,7 +200,7 @@ If you find this open source release useful, please reference in your paper:
 > An Optimistic Perspective on Offline Reinforcement Learning
 > *International Conference on Machine Learning (ICML)*.
 
-    @article{agarwal2020optimistic,
+    @inproceedings{agarwal2020optimistic,
       title={An Optimistic Perspective on Offline Reinforcement Learning},
       author={Agarwal, Rishabh and Schuurmans, Dale and Norouzi, Mohammad},
       journal={International Conference on Machine Learning},
