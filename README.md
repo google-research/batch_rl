@@ -57,6 +57,7 @@ agent's previous action again, instead of the agent's new action.
 - [Implicit Under-Parameterization Inhibits Data-Efficient Deep Reinforcement Learning](https://arxiv.org/abs/2010.14498) (ICLR 2021)
 - [Acme: A new framework for distributed reinforcement learning](https://arxiv.org/abs/2006.00979) (arXiv 2020)
 - [Addressing Extrapolation Error in Deep Offline Reinforcement Learning](https://openreview.net/forum?id=OCRKCul3eKN) (Submission, ICLR 2021)
+- [Online and Offline Reinforcement Learning by Planning with a Learned Model](https://arxiv.org/abs/2104.06294)
 
 
 [nature_dqn]: https://www.nature.com/articles/nature14236?wm=book_wap_0005
