@@ -193,6 +193,8 @@ The code was tested under Ubuntu 16 and uses these packages:
 - gym
 - numpy
 
+The python version upto `3.7.9` has been [reported to work](https://github.com/google-research/batch_rl/issues/21).
+
 Citing
 ------
 If you find this open source release useful, please reference in your paper:
