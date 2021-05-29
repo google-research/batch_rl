@@ -58,6 +58,8 @@ agent's previous action again, instead of the agent's new action.
 - [Acme: A new framework for distributed reinforcement learning](https://arxiv.org/abs/2006.00979) (arXiv 2020)
 - [Regularized Behavior Value Estimation](https://arxiv.org/abs/2103.09575)
 - [Online and Offline Reinforcement Learning by Planning with a Learned Model](https://arxiv.org/abs/2104.06294)
+- [Representation Matters: Offline Pretraining for Sequential Decision Making](https://arxiv.org/abs/2102.05815)
+- [Pretraining Reward-Free Representations for Data-Efficient Reinforcement Learning](https://openreview.net/forum?id=o5z9Le5drua)
 
 
 [nature_dqn]: https://www.nature.com/articles/nature14236?wm=book_wap_0005
