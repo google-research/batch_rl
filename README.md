@@ -59,7 +59,7 @@ agent's previous action again, instead of the agent's new action.
 - [Regularized Behavior Value Estimation](https://arxiv.org/abs/2103.09575)
 - [Online and Offline Reinforcement Learning by Planning with a Learned Model](https://arxiv.org/abs/2104.06294)
 - [Representation Matters: Offline Pretraining for Sequential Decision Making](https://arxiv.org/abs/2102.05815)
-- [Pretraining Reward-Free Representations for Data-Efficient Reinforcement Learning](https://openreview.net/forum?id=o5z9Le5drua)
+- [Pretraining Representations for Data-Efficient Reinforcement Learning](https://arxiv.org/abs/2106.04799)
 
 
 [nature_dqn]: https://www.nature.com/articles/nature14236?wm=book_wap_0005
