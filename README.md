@@ -58,7 +58,7 @@ agent's previous action again, instead of the agent's new action.
 - [Acme: A new framework for distributed reinforcement learning](https://arxiv.org/abs/2006.00979) 
 - [Regularized Behavior Value Estimation](https://arxiv.org/abs/2103.09575)
 - [Online and Offline Reinforcement Learning by Planning with a Learned Model](https://arxiv.org/abs/2104.06294)
-- [Representation Matters: Offline Pretraining for Sequential Decision Making](https://arxiv.org/abs/2102.05815)
+- [Provable Representation Learning for Imitation with Contrastive Fourier Features](https://arxiv.org/abs/2105.12272)
 - [Decision Transformer: Reinforcement Learning via Sequence Modeling](https://arxiv.org/abs/2106.01345)
 - [Pretraining Representations for Data-Efficient Reinforcement Learning](https://arxiv.org/abs/2106.04799)
 
