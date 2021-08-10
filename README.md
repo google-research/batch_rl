@@ -50,17 +50,13 @@ experience tuples due to frame skipping (*i.e.*, repeating a selected action for
 there is 25% chance at every time step that the environment will execute the
 agent's previous action again, instead of the agent's new action.
 
-#### Publications using DQN Replay Dataset (please open a pull request for missing entries):
-- [Revisiting Fundamentals of Experience Replay](https://arxiv.org/abs/2007.06700) 
-- [RL Unplugged: A Suite of Benchmarks for Offline Reinforcement Learning](https://arxiv.org/abs/2006.13888)
-- [Conservative Q-Learning for Offline Reinforcement Learning](https://arxiv.org/abs/2006.04779) 
-- [Implicit Under-Parameterization Inhibits Data-Efficient Deep Reinforcement Learning](https://arxiv.org/abs/2010.14498) 
-- [Acme: A new framework for distributed reinforcement learning](https://arxiv.org/abs/2006.00979) 
-- [Regularized Behavior Value Estimation](https://arxiv.org/abs/2103.09575)
-- [Online and Offline Reinforcement Learning by Planning with a Learned Model](https://arxiv.org/abs/2104.06294)
-- [Provable Representation Learning for Imitation with Contrastive Fourier Features](https://arxiv.org/abs/2105.12272)
-- [Decision Transformer: Reinforcement Learning via Sequence Modeling](https://arxiv.org/abs/2106.01345)
-- [Pretraining Representations for Data-Efficient Reinforcement Learning](https://arxiv.org/abs/2106.04799)
+#### Publications & submissions using DQN Replay Dataset (please open a pull request for missing entries):
+- [Revisiting Fundamentals of Experience Replay](https://arxiv.org/abs/2007.06700) (ICML 2020)
+- [RL Unplugged: A Suite of Benchmarks for Offline Reinforcement Learning](https://arxiv.org/abs/2006.13888) (NeurIPS 2020)
+- [Conservative Q-Learning for Offline Reinforcement Learning](https://arxiv.org/abs/2006.04779) (NeurIPS 2020)
+- [Implicit Under-Parameterization Inhibits Data-Efficient Deep Reinforcement Learning](https://arxiv.org/abs/2010.14498) (ICLR 2021)
+- [Acme: A new framework for distributed reinforcement learning](https://arxiv.org/abs/2006.00979) (arXiv 2020)
+- [Addressing Extrapolation Error in Deep Offline Reinforcement Learning](https://openreview.net/forum?id=OCRKCul3eKN) (Submission, ICLR 2021)
 
 
 [nature_dqn]: https://www.nature.com/articles/nature14236?wm=book_wap_0005
@@ -195,8 +191,6 @@ The code was tested under Ubuntu 16 and uses these packages:
 - opencv-python
 - gym
 - numpy
-
-The python version upto `3.7.9` has been [reported to work](https://github.com/google-research/batch_rl/issues/21).
 
 Citing
 ------

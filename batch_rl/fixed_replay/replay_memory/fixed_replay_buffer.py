@@ -21,12 +21,12 @@ from __future__ import print_function
 
 import collections
 from concurrent import futures
-
 from dopamine.replay_memory import circular_replay_buffer
-import gin
+
 import numpy as np
 import tensorflow.compat.v1 as tf
 
+import gin
 gfile = tf.gfile
 
 STORE_FILENAME_PREFIX = circular_replay_buffer.STORE_FILENAME_PREFIX
@@ -71,21 +71,11 @@ class FixedReplayBuffer(object):
     """Loads a OutOfGraphReplayBuffer replay buffer."""
     try:
       # pytype: disable=attribute-error
-      tf.logging.info(
-          f'Starting to load from ckpt {suffix} from {self._data_dir}')
       replay_buffer = circular_replay_buffer.OutOfGraphReplayBuffer(
           *self._args, **self._kwargs)
       replay_buffer.load(self._data_dir, suffix)
-      # pylint:disable=protected-access
-      replay_capacity = replay_buffer._replay_capacity
-      tf.logging.info(f'Capacity: {replay_buffer._replay_capacity}')
-      for name, array in replay_buffer._store.items():
-        # This frees unused RAM if replay_capacity is smaller than 1M
-        replay_buffer._store[name] = array[:replay_capacity + 4].copy()
-        tf.logging.info(f'{name}: {array.shape}')
       tf.logging.info('Loaded replay buffer ckpt {} from {}'.format(
           suffix, self._data_dir))
-      # pylint:enable=protected-access
       # pytype: enable=attribute-error
       return replay_buffer
     except tf.errors.NotFoundError:
