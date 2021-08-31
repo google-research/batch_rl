@@ -26,18 +26,16 @@ import json
 import os
 
 
+
 from absl import app
 from absl import flags
-
 from batch_rl.fixed_replay import run_experiment
 from batch_rl.fixed_replay.agents import dqn_agent
 from batch_rl.fixed_replay.agents import multi_head_dqn_agent
 from batch_rl.fixed_replay.agents import quantile_agent
 from batch_rl.fixed_replay.agents import rainbow_agent
-
 from dopamine.discrete_domains import run_experiment as base_run_experiment
 import tensorflow.compat.v1 as tf
-
 
 flags.DEFINE_string('agent_name', 'dqn', 'Name of the agent.')
 flags.DEFINE_string('replay_dir', None, 'Directory from which to load the '

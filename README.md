@@ -63,7 +63,6 @@ agent's previous action again, instead of the agent's new action.
 - [Pretraining Representations for Data-Efficient Reinforcement Learning](https://arxiv.org/abs/2106.04799)
 
 
-
 [nature_dqn]: https://www.nature.com/articles/nature14236?wm=book_wap_0005
 [gsutil_install]: https://cloud.google.com/storage/docs/gsutil_install#install
 [gsutil]: https://cloud.google.com/storage/docs/gsutil

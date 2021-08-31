@@ -22,14 +22,13 @@ r"""The entry point for running experiments.
 
 from absl import app
 from absl import flags
-
 from batch_rl.multi_head import multi_network_dqn_agent
 from batch_rl.multi_head import quantile_agent
-
 from dopamine.agents.dqn import dqn_agent
 from dopamine.agents.rainbow import rainbow_agent
 from dopamine.discrete_domains import run_experiment
 import tensorflow.compat.v1 as tf
+
 
 flags.DEFINE_string('agent_name', 'dqn', 'Name of the agent.')
 flags.DEFINE_string('base_dir', None,
