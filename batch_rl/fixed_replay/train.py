@@ -35,6 +35,7 @@ from batch_rl.fixed_replay.agents import multi_head_dqn_agent
 from batch_rl.fixed_replay.agents import quantile_agent
 from batch_rl.fixed_replay.agents import rainbow_agent
 from dopamine.discrete_domains import run_experiment as base_run_experiment
+from dopamine.discrete_domains import train as base_train  # pylint: disable=unused-import
 import tensorflow.compat.v1 as tf
 
 flags.DEFINE_string('agent_name', 'dqn', 'Name of the agent.')
