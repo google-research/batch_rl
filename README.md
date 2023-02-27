@@ -1,3 +1,6 @@
+
+# [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ktlNni_vwFpFtCgUez-RHW0OdGc2U_Wv?usp=sharing) [![Website](https://img.shields.io/badge/www-Website-green)](https://offline-rl.github.io) [![Blog](https://img.shields.io/badge/b-Blog-blue)](https://ai.googleblog.com/2020/04/an-optimistic-perspective-on-offline.html)
+
 # An Optimistic Perspective on Offline Reinforcement Learning (ICML, 2020)
 
 This project provides the open source implementation using the
@@ -50,7 +53,7 @@ experience tuples due to frame skipping (*i.e.*, repeating a selected action for
 there is 25% chance at every time step that the environment will execute the
 agent's previous action again, instead of the agent's new action.
 
-#### Publications using DQN Replay Dataset (please open a pull request for missing entries):
+#### Some Publications using DQN Replay Dataset (please open a pull request for missing entries):
 - [Revisiting Fundamentals of Experience Replay](https://arxiv.org/abs/2007.06700) 
 - [RL Unplugged: A Suite of Benchmarks for Offline Reinforcement Learning](https://arxiv.org/abs/2006.13888)
 - [Conservative Q-Learning for Offline Reinforcement Learning](https://arxiv.org/abs/2006.04779) 
@@ -60,8 +63,10 @@ agent's previous action again, instead of the agent's new action.
 - [Online and Offline Reinforcement Learning by Planning with a Learned Model](https://arxiv.org/abs/2104.06294)
 - [Provable Representation Learning for Imitation with Contrastive Fourier Features](https://arxiv.org/abs/2105.12272)
 - [Decision Transformer: Reinforcement Learning via Sequence Modeling](https://arxiv.org/abs/2106.01345)
+- [DR3: Value-Based Deep Reinforcement Learning Requires Explicit Regularization](https://arxiv.org/abs/2112.04716)
 - [Pretraining Representations for Data-Efficient Reinforcement Learning](https://arxiv.org/abs/2106.04799)
-
+- [Multi-Game Decision Transformers](https://arxiv.org/abs/2205.15241)
+- [Offline Q-Learning on Diverse Multi-Task Data Both Scales And Generalizes](https://arxiv.org/abs/2211.15144)
 
 [nature_dqn]: https://www.nature.com/articles/nature14236?wm=book_wap_0005
 [gsutil_install]: https://cloud.google.com/storage/docs/gsutil_install#install
