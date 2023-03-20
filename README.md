@@ -1,7 +1,11 @@
 
-# [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ktlNni_vwFpFtCgUez-RHW0OdGc2U_Wv?usp=sharing) [![Website](https://img.shields.io/badge/www-Website-green)](https://offline-rl.github.io) [![Blog](https://img.shields.io/badge/b-Blog-blue)](https://ai.googleblog.com/2020/04/an-optimistic-perspective-on-offline.html)
+# [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ktlNni_vwFpFtCgUez-RHW0OdGc2U_Wv?usp=sharing) [![Website](https://img.shields.io/badge/www-Website-green)](https://offline-rl.github.io) [![Blog](https://img.shields.io/badge/b-Blog-blue)](https://ai.googleblog.com/2020/04/an-optimistic-perspective-on-offline.html) [![JAX Code](https://img.shields.io/badge/JAX-Code-orange)](https://github.com/google/dopamine/tree/master/dopamine/labs/offline_rl)  
+
+
 
 # An Optimistic Perspective on Offline Reinforcement Learning (ICML, 2020)
+
+
 
 This project provides the open source implementation using the
 [Dopamine][dopamine] framework for running experiments mentioned in [An Optimistic Perspective on Offline Reinforcement Learning][paper].
@@ -18,6 +22,9 @@ interaction with the environment during training. Refer to
 
 # How to train offline agents on 50M dataset without RAM errors?
 Please refer to https://github.com/google-research/batch_rl/issues/10.
+
+# JAX codebase 
+[https://github.com/google/dopamine/tree/master/dopamine/labs/offline_rl](https://github.com/google/dopamine/tree/master/dopamine/labs/offline_rl).
 
 ## DQN Replay Dataset (Logged DQN data)
 
