@@ -20,6 +20,19 @@ interaction with the environment during training. Refer to
 [paper]: https://arxiv.org/pdf/1907.04543.pdf
 [dopamine]: https://github.com/google/dopamine
 
+# Important notes on Atari ROM versions
+
+The DQN replay dataset is generated using [a legacy set of Atari ROMs](https://github.com/openai/atari-py/tree/0.2.5/atari_py/atari_roms) specified in [`atari-py<=0.2.5`](https://github.com/openai/atari-py/tree/0.2.5), which is different from the ones specified in [`atari-py>=0.2.6`](https://github.com/openai/atari-py/tree/0.2.6) or in recent versions of [`ale-py`](https://github.com/mgbellemare/Arcade-Learning-Environment). To avoid train/evaluation mismatches, it is important to use `atari-py<=0.2.5` and also `gym<=0.19.0`, as higher versions of `gym` no longer support `atari-py`. 
+
+Alternatively, if you prefer to use recent versions of `ale-py` and `gym`, you can manually download the legacy ROMs from [`atari-py==0.2.5`](https://github.com/openai/atari-py/tree/0.2.5/atari_py/atari_roms) and specify the ROM paths in `ale-py`. For example, assuming `atari_py_rom_breakout` is the path to the downloaded ROM file `breakout.bin`, you can do the following before creating the gym environment:
+
+```
+import ale_py.roms
+ale_py.roms.Breakout = atari_py_rom_breakout
+```
+
+Note that this is an ad-hoc trick to circumvent the md5 checks in `ale-py<=0.7.5` and it may not work in future versions of `ale-py`. **Do not use this solution unless you know what you are doing**.
+
 # How to train offline agents on 50M dataset without RAM errors?
 Please refer to https://github.com/google-research/batch_rl/issues/10.
 
